@@ -32,14 +32,14 @@ We know, by design, that our sample is representative of the population.
 Now let's calculate a bootstrapped confidence interval for R2 from our sample.
 ```
 adj_rsquareds = []
-for i in range(1_000):															# Iterate a 1000 times 
+for i in range(1_000):															              # Iterate a 1000 times 
     inds = np.random.randint(0, samp_n-1, samp_n-1)								# Random sampling with replacement 
-    model = smf.ols('BODYFAT ~ ABDOMEN + WRIST + ANKLE + AGE',					# Fit model
-                    data=sample_bfp.iloc[inds]).fit()  # Fit the model!
-    rsq_adj = model.rsquared_adj												# Get R2
-    adj_rsquareds.append(rsq_adj)												# Store R2
+    model = smf.ols('BODYFAT ~ ABDOMEN + WRIST + ANKLE + AGE',		# Fit model
+                    data=sample_bfp.iloc[inds]).fit()             # Fit the model!
+    rsq_adj = model.rsquared_adj												          # Get R2
+    adj_rsquareds.append(rsq_adj)										          		# Store R2
 
-boot_rsq_adj_mean = np.mean(adj_rsquareds)										# Calculate mean of 1000 R2 values
+boot_rsq_adj_mean = np.mean(adj_rsquareds)										    # Calculate mean of 1000 R2 values
 boot_rsq_adj_ci = [np.quantile(adj_rsquareds, 0.025),							# Calculate 2.5th and 97.5th percentile values (R2)
                    np.quantile(adj_rsquareds, 0.975)]
 

@@ -47,8 +47,10 @@ print(f'Bootstrap Confidence Interval (Adj Rsquared): '
       + f'''{[f'{e:.2f}' for e in boot_rsq_adj_ci]}''')
 print(f'Population Rsquared_adj: {pop_adj_rsquared:.2f}')
 ```
->**Bootstrap Confidence Interval (Adj Rsquared): ['0.57', '0.93']<br>
->Population Rsquared_adj: 0.71**
+>**Bootstrap Confidence Interval (Adjusted R2): ['0.57', '0.93']<br>
+>Population Adjusted R2: 0.71**
+
+**As seen from the above output, the population R2 is indeed contained in the 95% confidence interval created from our sample!**
 
 Let's see the histogram for our 1000 R2 values:
 ```
@@ -74,6 +76,8 @@ ax.set_title('Distribution of Bootstrapped Sample Adj Rsquareds', size=16)
 plt.show()
 ```
 ![R2 Histogram](https://github.com/lbdeoliveira/msds610_code_presentation/blob/master/assets/images/R2_Histogram.png)
+
+From the above output, we can see that boostrapping can work even if the histogram (sampling distribution) is not a symmetric normal distribution. In fact, tt does not even have to be normal! You just need the percentile values to calculate confidence intervals or perform hypothesis testing.
 
 ### Summary
 1. Bootstrapping work wells for **very small sample sizes**

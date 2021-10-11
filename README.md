@@ -77,7 +77,7 @@ plt.show()
 ```
 ![R2 Histogram](https://github.com/lbdeoliveira/msds610_code_presentation/blob/master/assets/images/R2_Histogram.png)
 
-From the above output, we can see that boostrapping can work even if the histogram (sampling distribution) is not a symmetric normal distribution. In fact, tt does not even have to be normal! You just need the percentile values to calculate confidence intervals or perform hypothesis testing.
+From the above output, we can see that boostrapping can work even if the histogram (sampling distribution) is not a symmetric normal distribution. In fact, it does not even have to be normal! You just need the percentile values to calculate confidence intervals or perform hypothesis testing.
 
 ### Summary
 1. Bootstrapping work wells for **very small sample sizes**

@@ -32,15 +32,15 @@ We know, by design, that our sample is representative of the population.
 Now let's calculate a bootstrapped confidence interval for R2 from our sample.
 ```
 adj_rsquareds = []
-for i in range(1_000):															              # Iterate a 1000 times 
-    inds = np.random.randint(0, samp_n-1, samp_n-1)								# Random sampling with replacement 
-    model = smf.ols('BODYFAT ~ ABDOMEN + WRIST + ANKLE + AGE',		# Fit model
-                    data=sample_bfp.iloc[inds]).fit()             # Fit the model!
-    rsq_adj = model.rsquared_adj												          # Get R2
-    adj_rsquareds.append(rsq_adj)										          		# Store R2
+for i in range(1_000):                                            # Iterate a 1000 times 
+    inds = np.random.randint(0, samp_n-1, samp_n-1)               # Random sampling with replacement 
+    model = smf.ols('BODYFAT ~ ABDOMEN + WRIST + ANKLE + AGE',    # Fit model
+                    data=sample_bfp.iloc[inds]).fit()             
+    rsq_adj = model.rsquared_adj                                  # Get R2
+    adj_rsquareds.append(rsq_adj)                                 # Store R2
 
-boot_rsq_adj_mean = np.mean(adj_rsquareds)										    # Calculate mean of 1000 R2 values
-boot_rsq_adj_ci = [np.quantile(adj_rsquareds, 0.025),							# Calculate 2.5th and 97.5th percentile values (R2)
+boot_rsq_adj_mean = np.mean(adj_rsquareds)                        # Calculate mean of 1000 R2 values
+boot_rsq_adj_ci = [np.quantile(adj_rsquareds, 0.025),             # Calculate 2.5th and 97.5th percentiles (R2)
                    np.quantile(adj_rsquareds, 0.975)]
 
 print(f'Bootstrap Confidence Interval (Adj Rsquared): '
@@ -73,7 +73,7 @@ ax.set_title('Distribution of Bootstrapped Sample Adj Rsquareds', size=16)
 
 plt.show()
 ```
-![R2 Histogram](/assets/images/R2_Histogram.jpg)
+![R2 Histogram](https://github.com/lbdeoliveira/msds610_code_presentation/blob/master/assets/images/R2_Histogram.png)
 
 ### Summary
 1. Bootstrapping work wells for **very small sample sizes**

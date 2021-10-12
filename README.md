@@ -1,6 +1,45 @@
 # Bootstrapping
 Lucas De Oliveira, Kooha Kwon, Melvin Vellera
 
+## Traditional vs. Boostrap Estimations
+
+### Estimation of Population Mean Using Tradtional and Bootstrap Methods
+
+Now let's use the real dataset to compare the traditional and bootstrap statistical estimations. Here, we have 252 rows of data of bodyfat percentage. We are going to treat this dataset as a population. The population mean of the data is 18.94%.
+
+However, we are going to assume we only have 10 data points and build a 95% Confidence Interval with two methods. The data points were randomly sampled from the population using the following code:
+
+```
+samp_n = 10
+sample_bfp = bfp.loc[random.sample(range(252), samp_n)]
+sample_bfp['BODYFAT']
+```
+
+Traditionally, we can use Student's t-statistics in order to calculate the interval. The methodology requires estimation of standard deviation, standard error, and critical t*. The following equations can be used to calculate the 95% CI of the population mean.
+
+![CI_Equations](https://github.com/lbdeoliveira/msds610_code_presentation/blob/master/assets/images/CI_Equations.jpg)
+
+Now, let's use bootstrapping to estimate. As stated before, we first need to resample the sample multiple times to simulate sample distribution. And then, we calculate the mean for each simulation and collect all the means into a list. 
+
+```
+resample_means = []
+
+for i in range(10_000):                              # Repeating Simulation 10,000 Times
+    inds = np.random.randint(0, samp_n-1, samp_n-1)  # Randomly Pulling Samples
+    mean = sample_bfp['BODYFAT'].iloc[inds].mean()   # Calculating Simulated Mean
+    resample_means.append(mean)                      # Collecting Means into a List
+
+```
+
+Using the list of simulated means, we can draw a histogram. From the histogram, we could simply locate 2.5th and 97.5th percentile values, and that will be the lower and upper mean of our distribution.
+
+![Bootstrap_Mean_Histogram](https://github.com/lbdeoliveira/msds610_code_presentation/blob/master/assets/images/Bootstrap_Mean_Histogram.jpg)
+
+The table below shows the true population distribution, mean estimation using the traditional method, and estimation using the bootstrapping method. Both traditional and bootstrapping methods were able to successfully include the true population mean within their 95% CI. However, the bootstrapping method outperforms the traditional method with a tighter interval range.
+
+![Mean_Results](https://github.com/lbdeoliveira/msds610_code_presentation/blob/master/assets/images/Mean_Results.jpg)
+
+
 ### What if you do not know the analytical solution for calculating the confidence interval of a statistic?
 
 Let's take the example of Adjusted R2 in our example. Also, for the sake of simplicity we will refer to Adjusted R2 as R2 from now.

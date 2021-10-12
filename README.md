@@ -33,7 +33,7 @@ for i in range(10_000):                              # Repeating Simulation 10,0
 
 Using the list of simulated means, we can draw a histogram. From the histogram, we could simply locate 2.5th and 97.5th percentile values, and that will be the lower and upper mean of our distribution.
 
-<img src="https://github.com/lbdeoliveira/msds610_code_presentation/blob/master/assets/images/Bootstrap_Mean_Histogram.jpg" width="800">
+<p style="text-align:center;"><img src="https://github.com/lbdeoliveira/msds610_code_presentation/blob/master/assets/images/Bootstrap_Mean_Histogram.jpg" width="800"></p>
 
 The table below shows the true population distribution, mean estimation using the traditional method, and estimation using the bootstrapping method. Both traditional and bootstrapping methods were able to successfully include the true population mean within their 95% CI. However, the bootstrapping method outperforms the traditional method with a tighter interval range.
 

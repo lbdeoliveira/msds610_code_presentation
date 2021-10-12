@@ -37,9 +37,11 @@ Using the list of simulated means, we can draw a histogram. From the histogram, 
 
 The table below shows the true population distribution, mean estimation using the traditional method, and estimation using the bootstrapping method. Both traditional and bootstrapping methods were able to successfully include the true population mean within their 95% CI. However, the bootstrapping method outperforms the traditional method with a tighter interval range.
 
-![Mean_Results](https://github.com/lbdeoliveira/msds610_code_presentation/blob/master/assets/images/Mean_Results.jpg){:height="50%" width="50%"}
+<!-- ![Mean_Results](https://github.com/lbdeoliveira/msds610_code_presentation/blob/master/assets/images/Mean_Results.jpg){:height="50%" width="50%"} -->
+<img src="https://github.com/lbdeoliveira/msds610_code_presentation/blob/master/assets/images/CI_Equations.jpg" width="1000">
+<img src="https://github.com/lbdeoliveira/msds610_code_presentation/blob/master/assets/images/Bootstrap_Mean_Histogram.jpg" width="500">
 
-<img src="https://github.com/lbdeoliveira/msds610_code_presentation/blob/master/assets/images/Mean_Results.jpg" width="10">
+<img src="https://github.com/lbdeoliveira/msds610_code_presentation/blob/master/assets/images/Mean_Results.jpg" width="300">
 
 
 

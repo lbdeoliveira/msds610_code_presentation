@@ -42,7 +42,7 @@ Now that we have the basics down, let's do some examples with real data.
 
 ## Traditional vs. Boostrap Estimations
 
-### Estimation of Population Mean Using Tradtional and Bootstrap Methods
+### Estimation of Population Mean Using Traditional and Bootstrap Methods
 
 Now let's use the real dataset to compare the traditional and bootstrap statistical estimations. Here, we have 252 rows of data of bodyfat percentage. We are going to treat this dataset as a population. The population mean of the data is 18.94%.
 

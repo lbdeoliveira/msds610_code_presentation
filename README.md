@@ -18,17 +18,23 @@ Lastly, analyze the stored values for inference. This could range from plotting 
 
 Suppose we ran a clinical trial on a new drug to see if it had a significant effect in ameliorating symptoms of a particular disease. Our sample is small as we could only afford to conduct the trial on 8 people at this stage. We observe the following:
 
-**Picture of result sample**
+<p align="center">
+<img src="https://github.com/lbdeoliveira/msds610_code_presentation/blob/master/assets/images/sample.png" width="800">
+</p>
 
 As we can see, some observations showed great improvement while others regressed. Of course, we don't really know the reason for the variation in the result set from such a small sample. The people that improved may have improved regardless of taking the drug (or even despite taking the drug), and similarly those that got worse might have gotten worse regardless. In order to properly infer what the range of reactions to this drug might be in the general population, we would need to repeat this experiment many more times or with a very large sample that could confer some real statistical power. Doing so, however, would likely cost many millions of dollars.
 
 Bootstrapping this initial result set gives us a way of simulating the outcomes of repeated trials without actually having to perform an expensive experiment again. It also allows us to capture a larger range of estimates for the population parameter due to sampling with replacement. Note how much the sample mean (red bar) moves around in the bootstrapped samples below:
 
-**GIF of bootstrapped samples**
+<p align="center">
+<img src="https://github.com/lbdeoliveira/msds610_code_presentation/blob/master/assets/images/bootstraps.gif" width="800">
+</p>
 
 Finally, we can plot a histogram of 10,000 bootstrapped sample means and analyze their distribution:
 
-**Histogram**
+<p align="center">
+<img src="https://github.com/lbdeoliveira/msds610_code_presentation/blob/master/assets/images/samplemeans_hist.png" width="800">
+</p>
 
 Now that we have the basics down, let's do some examples with real data.
 

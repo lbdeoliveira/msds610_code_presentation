@@ -1,6 +1,39 @@
 # Bootstrapping
 Lucas De Oliveira, Kooha Kwon, Melvin Vellera
 
+## Introduction
+
+Bootstrapping is a technique of iterative resampling a set of data with replacement used to make inferences about the target population often used on small samples or when the statistic we are trying to measure does not have good parametric methods for inference (like a t-distribution).
+
+We can bootstrap a sample by performing the following algorithm. Given a result of sample size n:
+
+1. Take a new sample (usually of size n) from the original data with replacement.
+2. Calculate the desired statistic on new sample (mean, median, standard deviation, etc.).
+3. Store the statistic for later.
+4. Repeat steps 1-3 many times (usually 1,000 or 10,000 times).
+
+Lastly, analyze the stored values for inference. This could range from plotting a histogram of sample means to using confidence intervals for hypothesis tests on population parameters.
+
+### Example: Small Result Sample from a Clinical Trial
+
+Suppose we ran a clinical trial on a new drug to see if it had a significant effect in ameliorating symptoms of a particular disease. Our sample is small as we could only afford to conduct the trial on 8 people at this stage. We observe the following:
+
+**Picture of result sample**
+
+As we can see, some observations showed great improvement while others regressed. Of course, we don't really know the reason for the variation in the result set from such a small sample. The people that improved may have improved regardless of taking the drug (or even despite taking the drug), and similarly those that got worse might have gotten worse regardless. In order to properly infer what the range of reactions to this drug might be in the general population, we would need to repeat this experiment many more times or with a very large sample that could confer some real statistical power. Doing so, however, would likely cost many millions of dollars.
+
+Bootstrapping this initial result set gives us a way of simulating the outcomes of repeated trials without actually having to perform an expensive experiment again. It also allows us to capture a larger range of estimates for the population parameter due to sampling with replacement. Note how much the sample mean (red bar) moves around in the bootstrapped samples below:
+
+**GIF of bootstrapped samples**
+
+Finally, we can plot a histogram of 10,000 bootstrapped sample means and analyze their distribution:
+
+**Histogram**
+
+Now that we have the basics down, let's do some examples with real data.
+
+
+
 ## Traditional vs. Boostrap Estimations
 
 ### Estimation of Population Mean Using Tradtional and Bootstrap Methods
